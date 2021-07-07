@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="post">
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>${{cashstocks}}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{row.Symbol}}</td>
+                    <td>{{row.Names}}</td>
+                    <td>{{row.Shares}}</td>
+                    <td>{{row.Prices}}</td>
+                    <td>${{row.PWP}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="4">CASH REMAINING</td>
+                    <td>${{cash}}</td>
+                </tr>
+
+        </tbody>
+    </table>
+{% endblock %}
+
