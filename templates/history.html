@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <form action="/history" method="post">
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+                <th>Trade</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{row.Symbol}}</td>
+                    <td>{{row.Shares}}</td>
+                    <td>{{row.Price}}</td>
+                    <td>{{row.Time}}</td>
+                    <td>{{row.Trade}}</td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
